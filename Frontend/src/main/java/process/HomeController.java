@@ -20,23 +20,10 @@ public class HomeController {
 		return "Home";
 	}
 	
-	
 	@RequestMapping("/Login") 
 	public String showlogin() 
 	{ 
 		return "Login"; 
-	}
-	 
-	@RequestMapping("/Category")
-	public String showCategory()
-	{
-		return "Category";
-	}
-	
-	@RequestMapping("/Product")
-	public String showProduct()
-	{
-		return "Product";
 	}
 	
 	@RequestMapping("/Supplier")
@@ -44,13 +31,6 @@ public class HomeController {
 	{
 		return "Supplier";
 	}
-	
-	 /*
-		@RequestMapping("/Register")
-		public String showRegister()
-		{
-			return "Register";
-		}*/
 	
 	@RequestMapping(value="Register", method=RequestMethod.GET) 
 	public String showRegister(Map<String, Object> model) 

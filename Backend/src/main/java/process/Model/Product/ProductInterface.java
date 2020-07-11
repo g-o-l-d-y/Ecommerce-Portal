@@ -9,5 +9,6 @@ public interface ProductInterface {
 	public boolean updateProduct(Product product);
 	public Product getProduct(int productId);
 	public List<Product> listProducts();
+	public List<Product> listProductsCategoryWise(int categoryId);
 }
 

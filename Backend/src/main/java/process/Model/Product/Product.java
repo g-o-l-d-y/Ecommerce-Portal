@@ -18,14 +18,24 @@ public class Product {
 	int productId;
 	String productName;
 	String productDesc;
+	
 	double price;
 	int stock;
-	int categoryId;
-  
-	/*
-	 * @Transient MultipartFile pImage;
-	 */
 	
+	int categoryId;
+	int supplierId;
+	
+	@Transient
+	MultipartFile productImage;
+	
+	public int getSupplierId() {
+		return supplierId;
+	}
+
+	public void setSupplierId(int supplierId) {
+		this.supplierId = supplierId;
+	}
+
 	public int getProductId() {
 		return productId;
 	}
@@ -73,11 +83,14 @@ public class Product {
 	public void setCategoryId(int categoryId) {
 		this.categoryId = categoryId;
 	}
-	
-	/*
-	 * public MultipartFile getPimage() { return pImage; }
-	 * 
-	 * public void setPimage(MultipartFile pImage) { this.pImage = pImage; }
-	 */
+
+	public MultipartFile getproductImage() {
+		return productImage;
+	}
+
+	public void setproductImage(MultipartFile productImage) {
+		this.productImage = productImage;
+	}
+
 }
 

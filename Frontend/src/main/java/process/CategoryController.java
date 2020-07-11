@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,39 +19,61 @@ public class CategoryController {
 	@Autowired 
 	CategoryInterface categoryDAO;
 	
+	@RequestMapping("/Category")
+	public String showCategory(Model m)
+	{
+		List<Category> categoryList=categoryDAO.listCategories();
+		m.addAttribute("categoryList", categoryList);
+		return "Category";
+	}
+	
 	@RequestMapping(value="addCategory" , method=RequestMethod.POST)
-	public String addCategory(@RequestParam("categoryName") String categoryName, @RequestParam("categoryDesc") String categoryDesc)
+	public String addCategory(@RequestParam("categoryName") String categoryName, @RequestParam("categoryDesc") String categoryDesc, Model m)
 	{
 		Category c=new Category();
 		c.setCategoryName(categoryName);
 		c.setCategoryDesc(categoryDesc);
 		categoryDAO.addCategory(c);
+		
+		List<Category> categoryList=categoryDAO.listCategories();
+		m.addAttribute("categoryList", categoryList);
 		System.out.println("Done");
 		return "Category";
 	}
 	
-	@RequestMapping(value="listCategories" , method=RequestMethod.GET)
-	public String listCategories(Model model)
-	{
-		List<Category> listCategories=categoryDAO.listCategories();
-		model.addAttribute("categoryList", listCategories);
-		return "CategoryList";
-	}
-	
-	@RequestMapping(value="deleteCategory",method=RequestMethod.POST)
-	public String deleteCategory(@RequestParam("categoryId") int categoryId)
+	@RequestMapping("/deleteCategory/{categoryId}")
+	public String deleteCategory(@PathVariable("categoryId")int categoryId,Model m)
 	{
 		Category c= categoryDAO.getCategory(categoryId);
 		categoryDAO.deleteCategory(c);
+		
+		List<Category> categoryList=categoryDAO.listCategories();
+		m.addAttribute("categoryList", categoryList);
+		
 		return "Category";
 	}
 	
-	@RequestMapping(value="editCategory",method=RequestMethod.POST)
-	public String updateCategory(@RequestParam("categoryId") int categoryId, @RequestParam("categoryName") String categoryName)
+	@RequestMapping(value="/updateCategory",method=RequestMethod.POST)
+	public String updateCategory(@RequestParam("categoryId")int categoryId,@RequestParam("categoryName")String categoryName,@RequestParam("categoryDesc")String categoryDesc,Model m)
 	{
 		Category c=categoryDAO.getCategory(categoryId);
+		
 		c.setCategoryName(categoryName);
+		c.setCategoryDesc(categoryDesc);
+		
 		categoryDAO.updateCategory(c);
+		
+		List<Category> categoryList=categoryDAO.listCategories();
+		m.addAttribute("categoryList", categoryList);
+		
 		return "Category";
+	}
+	
+	@RequestMapping("/editCategory/{categoryId}")
+	public String editCategory(@PathVariable("categoryId")int categoryId,Model m)
+	{
+		Category c=categoryDAO.getCategory(categoryId);
+		m.addAttribute("category",c);
+		return "UpdateCategory";
 	}
 }

@@ -22,9 +22,7 @@ public class ProductTest {
 	context.scan("process");
 	context.refresh();
 	productDAO=(ProductInterface)context.getBean("productDAO");
-	context.close();
 	}
-	
 	@Ignore
 	@Test
 	public void addProductTest()
@@ -32,7 +30,8 @@ public class ProductTest {
 	Product product=new Product();
 	product.setProductName("Samsung Galaxy S10");
 	product.setProductDesc("Android Version 10.0");
-	product.setCategoryId(65);
+	product.setCategoryId(194);
+	product.setSupplierId(10);
 	product.setPrice(49990.00);
 	product.setStock(50);
 	assertTrue("Problem in adding the Product",productDAO.addProduct(product)); 
@@ -61,6 +60,7 @@ public class ProductTest {
 	product.setPrice(49900.00);
 	assertTrue("Problem in Updation",productDAO.updateProduct(product));
 	}
+	@Ignore
 	@Test
 	public void listProductsTest()
 	{
@@ -72,6 +72,22 @@ public class ProductTest {
 	System.out.print(product.getProductName()+":::");
 	System.out.println(product.getProductDesc());
 	}
+	}
+
+	@Test 
+	public void listProductsCategoryWiseTest()
+	{
+		List<Product> productList=productDAO.listProductsCategoryWise(194);
+		
+		assertTrue("Problem in Retrieving the List of Products",productList.size()>0);
+		
+		System.out.println("==================Category Wise==================");
+		for(Product product:productList)
+		{
+			System.out.print(product.getProductId()+":::");
+			System.out.print(product.getProductName()+":::");
+			System.out.println(product.getPrice()+":::");
+		}
 	}
 	
 }
