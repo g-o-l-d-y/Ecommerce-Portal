@@ -47,11 +47,13 @@ public class ProductImpl implements ProductInterface
 		try
 		{
 		sessionFactory.getCurrentSession().update(product);
+		System.out.println("Impl");
 		return true;	
 		}
 		catch(Exception e)
 		{
-		return false;
+			System.out.println("Not Done");
+			return false;
 		}
 	}
 

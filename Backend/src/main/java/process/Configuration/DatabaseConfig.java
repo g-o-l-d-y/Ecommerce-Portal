@@ -14,6 +14,7 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import process.Model.Cart.Cart;
 import process.Model.Category.Category;
 import process.Model.Product.Product;
 import process.Model.Supplier.Supplier;
@@ -53,6 +54,7 @@ public class DatabaseConfig
 		factory.addAnnotatedClass(Product.class);
 		factory.addAnnotatedClass(Supplier.class);
 		factory.addAnnotatedClass(User.class);
+		factory.addAnnotatedClass(Cart.class);
 		
 		SessionFactory sessionFactory=factory.buildSessionFactory();	
 		System.out.println("Session is created");
