@@ -14,7 +14,7 @@ public class Cart {
 	int productId;
 	String productName;
 	int quantity;
-	int price;
+	double price;
 	String userName;
 	String status;
 	
@@ -48,10 +48,10 @@ public class Cart {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-	public int getPrice() {
+	public double getPrice() {
 		return price;
 	}
-	public void setPrice(int price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 	public String getUserName() {

@@ -66,8 +66,8 @@ public class ProductController {
 		
 		//Image Adding
 		
-		String imagePath="C:\\Users\\goldy\\git\\Ecommerce-Project\\Frontend\\src\\main\\webapp\\resources\\images\\";
-		imagePath=imagePath+String.valueOf(product.getProductId())+".jpg";
+		String imagePath="C:\\Users\\goldy\\git\\Ecommerce-Portal\\Frontend\\src\\main\\webapp\\resources\\images\\";
+		imagePath=imagePath+String.valueOf(product.getProductId())+".png";
 		
 		File imageFile=new File(imagePath);
 		
@@ -75,6 +75,7 @@ public class ProductController {
 		{
 			try
 			{
+				
 				byte fileBuffer[]=filedet.getBytes();
 				FileOutputStream fos=new FileOutputStream(imageFile);
 				BufferedOutputStream bs=new BufferedOutputStream(fos);
@@ -103,8 +104,70 @@ public class ProductController {
 		return "Product";
 	}
 	
+	/*
 	@RequestMapping(value="/editProduct/{productId}")
 	public String editProduct(@PathVariable("productId") int productId,Model m)
+	{
+		Product p=productDAO.getProduct(productId);
+		m.addAttribute("product",p);
+		return "UpdateProduct";
+	}
+	
+	@RequestMapping(value="/updateProduct",method=RequestMethod.POST, consumes="multipart/form-data")
+	public String updateProduct(@RequestParam("productId")int productId,@RequestParam("productName")String productName, 
+			@RequestParam("productDesc")String productDesc, @RequestParam("stock") int stock, @RequestParam("price") double price,
+			 @RequestParam("supplierId") int supplierId, @RequestParam("productImage") MultipartFile filedet, Model m)
+	{
+		Product product1=new Product();
+		m.addAttribute("product", product1);
+		Product p=productDAO.getProduct(productId);
+		
+		p.setProductName(productName);
+		p.setProductDesc(productDesc);
+		p.setPrice(price);
+		p.setStock(stock);
+		p.setSupplierId(supplierId);
+		p.setproductImage(filedet);
+		
+		String imagePath="C:\\Users\\goldy\\git\\Ecommerce-Portal\\Frontend\\src\\main\\webapp\\resources\\images\\";
+		imagePath=imagePath+String.valueOf(productId)+".jpg";
+		
+		File imageFile=new File(imagePath);
+		
+		if(!filedet.isEmpty())
+		{
+			try
+			{
+				byte fileBuffer[]=filedet.getBytes();
+				FileOutputStream fos=new FileOutputStream(imageFile);
+				BufferedOutputStream bs=new BufferedOutputStream(fos);
+				bs.write(fileBuffer);
+				System.out.println("Uploaded");
+				bs.close();
+			}
+			catch(Exception e)
+			{
+				System.out.println(e);
+			}
+		}
+		else
+		{
+			System.out.println("Error Occured While File Uploading");
+		}
+		
+		productDAO.updateProduct(p);
+		
+		List<Product> productList=productDAO.listProducts();
+		m.addAttribute("productList", productList);
+		
+		System.out.println("Updation");
+		
+		return "Product";
+	}
+	*/
+	
+	@RequestMapping(value="/editProduct/{productId}")
+	public String editProduct(@PathVariable("productId")int productId,Model m)
 	{
 		prodId=productId;
 		Product product1=productDAO.getProduct(productId);
@@ -118,22 +181,67 @@ public class ProductController {
 		return "Product";
 	}
 	
-	@RequestMapping(value="/editProduct/addProduct")
-	public String updateProduct(@RequestParam("productName") String productName, Model m)
+	@RequestMapping(value="/editProduct/addProduct",method=RequestMethod.POST, consumes="multipart/form-data")
+	public String updateProduct(@ModelAttribute("product")Product product,@RequestParam("productImage") MultipartFile filedet,Model m)
 	{
-		Product product1=productDAO.getProduct(prodId);
-		product1.setProductName(productName);
-		productDAO.updateProduct(product1);
+		int productId=prodId;
+		System.out.println(productId);
+		Product p=productDAO.getProduct(productId);
+		double price=product.getPrice();
+		int stock=product.getStock();
+		int supplierId=product.getSupplierId();
+		String productName=product.getProductName();
+		String productDesc=product.getProductDesc();
+		int categoryId=product.getCategoryId();
 		
-		Product product=new Product();
-		m.addAttribute("product", product);
+		p.setProductName(productName);
+		p.setProductDesc(productDesc);
+		p.setPrice(price);
+		p.setStock(stock);
+		p.setSupplierId(supplierId);
+		p.setproductImage(filedet);
+		p.setCategoryId(categoryId);
+		
+		productDAO.updateProduct(p);
+		
+		String imagePath="C:\\Users\\goldy\\git\\Ecommerce-Portal\\Frontend\\src\\main\\webapp\\resources\\images\\";
+		imagePath=imagePath+String.valueOf(productId)+".png";
+		
+		File image=new File(imagePath);
+		image.delete();
+		File imageFile=new File(imagePath);
+		
+		if(!filedet.isEmpty())
+		{
+			try
+			{
+				byte fileBuffer[]=filedet.getBytes();
+				FileOutputStream fos=new FileOutputStream(imageFile);
+				BufferedOutputStream bs=new BufferedOutputStream(fos);
+				bs.write(fileBuffer);
+				System.out.println("Uploaded");
+				bs.close();
+			}
+			catch(Exception e)
+			{
+				System.out.println(e);
+			}
+		}
+		else
+		{
+			System.out.println("Error Occured While File Uploading");
+		}
+		
+		
+		Product product1=new Product();
+		m.addAttribute("product", product1);
 		
 		List<Product> productList=productDAO.listProducts();
 		m.addAttribute("productList", productList);
 		
 		List<Category> categoryList=categoryDAO.listCategories();
-		m.addAttribute("categoryList", this.getCategoryList(categoryList));
-		
+		m.addAttribute("categoryList",this.getCategoryList(categoryList));
+		System.out.println("Updated");
 		return "Product";
 	}
 	
@@ -155,12 +263,38 @@ public class ProductController {
 		return "Product";
 	}
 	
+	/*
 	@RequestMapping(value="displayProducts" ,method=RequestMethod.POST)
 	public String displayProducts(Model model)
 	{
 		List<Product> listProducts=productDAO.listProducts();
 		model.addAttribute("productList", listProducts);
 		return "ProductList";
+	}
+	*/
+	
+	@RequestMapping(value="/productDisplay")
+	public String productDisplay(Model m)
+	{
+		List<Product> productList=productDAO.listProducts();
+		m.addAttribute("productList", productList);
+		
+		List<Category> categoryList=categoryDAO.listCategories();
+		m.addAttribute("categoryList",this.getCategoryList(categoryList));
+		
+		return "ProductDisplay";
+	}
+	
+	@RequestMapping(value="/totalProductDisplay/{productId}")
+	public String totalProductDisplay(@PathVariable("productId")int productId,Model m)
+	{
+		Product product1=productDAO.getProduct(productId);
+		m.addAttribute("product", product1);
+		
+		List<Category> categoryList=categoryDAO.listCategories();
+		m.addAttribute("categoryList",this.getCategoryList(categoryList));
+		
+		return "TotalProductDisplay";
 	}
 	
 }

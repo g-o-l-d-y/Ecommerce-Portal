@@ -29,7 +29,7 @@
     				<form:input class="form-control" path="productDesc"/>
     			</div>
     			<label for="Image" class="col-sm-1 col-form-label">Image</label>
-    			<div class="col-sm-2">
+    			<div class="col-sm-4">
     				<form:input type="file" class="form-control" path="productImage"/>
     			</div>
     		</div>
@@ -47,7 +47,7 @@
     				<form:input class="form-control" path="stock"/>
     			</div>
     		</div>
-  			<input type="submit" class="btn btn-primary" value="ADD"/>
+  			<input type="submit" class="btn btn-primary" value="Add / Update"/>
 		</form:form>
 		<!-- <form action="deleteProduct" method="POST">
 			<br>
@@ -68,6 +68,7 @@
 			<tr>
 				<td>Product ID</td>
 				<td>Product Name</td>
+				<td>Product Description</td>
 				<td>Category</td>
 				<td>Price</td>
 				<td>Supplier ID</td>
@@ -78,6 +79,7 @@
 			<tr>
 				<td>${product.productId}</td>
 				<td>${product.productName}</td>
+				<td>${product.productDesc}</td>
 				<td>${product.categoryId}</td>
 				<td>${product.price}</td>
 				<td>${product.supplierId}</td>
