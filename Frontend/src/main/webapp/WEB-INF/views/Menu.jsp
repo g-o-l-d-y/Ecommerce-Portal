@@ -46,20 +46,21 @@
       <a class="navbar-brand" href="#">Titicaca</a>
     </div>
     <ul class="nav navbar-nav">
-    <li class="active"><a href="Home">Home</a></li>
+    <li class="active"><a href="<c:url value="/Home"/>">Home</a></li>
     <c:if test="${!sessionScope.loggedIn}">	
-      		<li><a href="ContactUs">Contact Us</a></li>
+    		<li><a href="<c:url value="AboutUs"/>">About Us</a></li>
+      		<li><a href="<c:url value="ContactUs"/>">Contact Us</a></li>
     </c:if>
     <c:if test="${sessionScope.loggedIn}">
     	<c:if test="${sessionScope.role=='ROLE_ADMIN'}">
-      		<li><a href="Category">Manage Category</a></li>
-      		<li><a href="Product">Manage Product</a></li>
+      		<li><a href="<c:url value="/Category"/>">Manage Category</a></li>
+      		<li><a href="<c:url value="/Product"/>">Manage Product</a></li>
       	</c:if>
     </c:if>
     <c:if test="${sessionScope.loggedIn}">
     	<c:if test="${sessionScope.role=='ROLE_USER'}">
-      		<li><a href="productDisplay">Product </a></li>
-      		<li><a href="Cart">Cart</a></li>
+      		<li><a href="<c:url value="/productDisplay"/>">Product </a></li>
+      		<li><a href="<c:url value="/Cart"/>">Cart</a></li>
       	</c:if>
     </c:if>
     </ul>

@@ -35,12 +35,10 @@
 					</div>
 					<hr>
 					<div class="btn-group cart">
-						<input type="submit" value="Add to Cart" class="btn btn-success">
+						<input type="submit" value="Add to Cart" class="btn btn-warning">
 					</div>
 					<div class="btn-group wishlist">
-						<button type="button" class="btn btn-danger">
-							Buy Now
-						</button>
+						<input type="submit" value="Buy Now" class="btn btn-success" formaction="<c:url value="/buyNow/${product.productId}"/>">
 					</div>
 				</div>
 				</form>

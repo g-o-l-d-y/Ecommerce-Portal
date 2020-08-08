@@ -4,14 +4,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Home</title>
+	<meta charset="ISO-8859-1">
+	<title>Home</title>
 </head>
 <body>
 	<div class="container">
-		<!-- <img class="img-fluid img-thumbnail" src="C:\Users\goldy\git\Ecommerce-Portal\Frontend\src\main\webapp\resources\images\Screenshot(43).png" height=500 width=500/> -->
-		<img class="img-fluid img-thumbnail" src="resources/images/HP1.jpg" height=500 width=500/>
-		<img class="img-fluid img-thumbnail" src="resources/images/HP2.jpg" height=500 width=500/>
+		<div class="product col-md-3 service-image-left">
+			<img class="img-fluid img-thumbnail" src="<c:url value="/resources/images/HP1.jpg"/>" height=500 width=450/>
+		</div>
+		<div class="product col-md-3 service-image-right">
+			<img class="img-fluid img-thumbnail" src="<c:url value="/resources/images/HP2.jpg"/>" height=500 width=450/>
+		</div>
 	</div>
 </body>
 </html>

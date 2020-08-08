@@ -35,23 +35,6 @@ public class UserController {
 	@Autowired
 	ProductInterface productDAO;
 	
-	/*
-	  @RequestMapping(value="registerUser", method=RequestMethod.POST) 
-	  public String registerUser(@RequestParam("customerName") String customerName,@RequestParam("userName") String userName, @RequestParam("password") String password, @RequestParam("emailId")String emailId, @RequestParam("mobileNo")String mobileNo,@RequestParam("address") String address) 
-	  { 
-		  User user=new User();
-		  user.setUserName(userName); 
-		  user.setCustomerName(customerName);
-		  user.setMobileNo(mobileNo); 
-		  user.setPassword(password);
-		  user.setEmailId(emailId); 
-		  user.setAddress(address);
-		  user.setRole("ROLE_USER"); 
-		  user.setEnabled(true); 
-		  userDAO.registerUser(user);
-		  return "Login"; 
-	  }
-	  */
 	
 	@RequestMapping("/success")
 	public String loginSuccess(HttpSession session,Model m)
@@ -93,15 +76,6 @@ public class UserController {
 		}
 		return page;
       }
-	
-	 /*
-	  @RequestMapping("/perform_login")
-	  public String performLogin()
-	  {
-		  System.out.println("Perform Login");
-		  return "Login";
-	  }
-	  */
 	  
 	
 	  @RequestMapping(value="registerUser", method=RequestMethod.POST)

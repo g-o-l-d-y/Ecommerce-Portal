@@ -5,7 +5,7 @@
 <html>
 	<head>
 		<meta charset="ISO-8859-1">
-		<title>Insert title here</title>
+		<title>Cart</title>
 	</head>
 	<body>
 	<div class="container">
@@ -81,7 +81,7 @@
                         <td>   </td>
                         <td>   </td>
                         <td>
-                        <a href="<c:url value="/productdisplay"/>" class="btn btn-default">
+                        <a href="<c:url value="/productDisplay"/>" class="btn btn-default">
                             <span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping
                         </a></td>
                         <td>

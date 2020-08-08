@@ -49,20 +49,6 @@
     		</div>
   			<input type="submit" class="btn btn-primary" value="Add / Update"/>
 		</form:form>
-		<!-- <form action="deleteProduct" method="POST">
-			<br>
-			<div class="form-group row">
-    			<label for="ProductId" class="col-sm-1 col-form-label">Product Id (To delete)</label>
-    			<div class="col-sm-1">
-    				<input type="number" class="form-control" name="productId">
-    			</div>
-    		</div>
-    		<button type="submit" class="btn btn-primary">Delete</button>
-    	</form>
-    	<form action="displayProducts" method="POST">
-    		<br>
-    		<button type="submit" class="btn btn-primary">Display Products</button>
-    	</form> -->
     	<br>
     	<table class="table table-bordered">
 			<tr>

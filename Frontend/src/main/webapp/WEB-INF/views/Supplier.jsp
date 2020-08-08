@@ -9,7 +9,7 @@
 	</head>
 	<body>
 	<div class="container">
-		<form action="addSupplier" method="POST">
+		<form action="<c:url value="addSupplier"/>" method="POST">
 			<div class="form-group row">
     			<label for="Supplier" class="col-sm-2 col-form-label">Supplier Name</label>
     			<div class="col-sm-5">
@@ -24,7 +24,7 @@
     		</div>
   			<button type="submit" class="btn btn-primary">Add</button>
 		</form>
-		<form action="deleteSupplier" method="POST">
+		<form action="<c:url value="deleteDisplay"/>" method="POST">
 			<br>
 			<div class="form-group row">
     			<label for="SupplierId" class="col-sm-2 col-form-label">Supplier Id (To delete)</label>
@@ -34,7 +34,7 @@
     		</div>
     		<button type="submit" class="btn btn-primary">Delete</button>
     	</form>
-    	<form action="editSupplier" method="POST">
+    	<form action="<c:url value="editSupplier"/>" method="POST">
     		<br>
     		<div class="form-group row">
     			<label for="SupplierId" class="col-sm-2 col-form-label">Supplier Id (To edit)</label>
@@ -48,7 +48,7 @@
     		</div>
     		<button type="submit" class="btn btn-primary">Update/Edit</button>
     	</form>
-		<form action="listSuppliers" method="GET">
+		<form action="<c:url value="listSuppliers"/>" method="GET">
 			<br>
 			<button type="submit" class="btn btn-primary">Display Suppliers</button>
 		</form>

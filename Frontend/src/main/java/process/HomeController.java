@@ -39,5 +39,15 @@ public class HomeController {
 		return "Register"; 
 	}
 	
+	@RequestMapping("/ContactUs")
+	public String showContactUs()
+	{
+		return "ContactUs";
+	}
 	
+	@RequestMapping("/AboutUs")
+	public String showAboutUs()
+	{
+		return "AboutUs";
+	}
 }

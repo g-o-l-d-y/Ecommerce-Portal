@@ -9,7 +9,7 @@
 	</head>
 	<body>
 	<div class="container">
-		<form:form action="registerUser" method="POST" modelAttribute="user">
+		<form:form action="<c:url value="registerUser"/>" method="POST" modelAttribute="user">
 			<div class="form-group row">
     			<label for="customerName" class="col-sm-2 col-form-label">Name</label>
     			<div class="col-sm-5">

@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import process.Model.Cart.Cart;
 import process.Model.Cart.CartInterface;
+import process.Model.Category.Category;
+import process.Model.Category.CategoryInterface;
 import process.Model.Product.Product;
 import process.Model.Product.ProductInterface;
 
@@ -25,10 +27,37 @@ public class CartController {
 	@Autowired
 	ProductInterface productDAO;
 	
+	@Autowired
+	CategoryInterface categoryDAO;
+	
 	@RequestMapping(value="/Cart")
 	public String showCart(Model m,HttpSession session)
 	{
 		String username=(String)session.getAttribute("username");
+		
+		List<Cart> cartItemList=cartDAO.listCartItems(username);
+		m.addAttribute("listCartItems", cartItemList);
+		
+		m.addAttribute("total_Amount", this.totalCartValue(cartItemList));
+		
+		return "Cart";
+	}
+	
+	@RequestMapping(value="/buyNow/{productId}")
+	public String buyNow(@PathVariable("productId")int productId,@RequestParam("quantity")int quantity,Model m,HttpSession session)
+	{
+		Product product=productDAO.getProduct(productId);
+		String username=(String)session.getAttribute("username");
+		
+		Cart cartItem=new Cart();
+		cartItem.setProductId(product.getProductId());
+		cartItem.setProductName(product.getProductName());
+		cartItem.setPrice(product.getPrice());
+		cartItem.setQuantity(quantity);
+		cartItem.setStatus("NP");
+		cartItem.setUserName(username);
+		
+		cartDAO.addToCart(cartItem);
 		
 		List<Cart> cartItemList=cartDAO.listCartItems(username);
 		m.addAttribute("listCartItems", cartItemList);
@@ -54,12 +83,15 @@ public class CartController {
 		
 		cartDAO.addToCart(cartItem);
 		
-		List<Cart> cartItemList=cartDAO.listCartItems(username);
-		m.addAttribute("listCartItems", cartItemList);
+		ProductController pp=new ProductController();
 		
-		m.addAttribute("total_Amount", this.totalCartValue(cartItemList));
+		List<Product> productList=productDAO.listProducts();
+		m.addAttribute("productList", productList);
 		
-		return "Cart";
+		List<Category> categoryList=categoryDAO.listCategories();
+		m.addAttribute("categoryList",pp.getCategoryList(categoryList));
+		
+		return "ProductDisplay";
 	}
 	
 	@RequestMapping(value="/deleteCartItem/{cartItemId}")
