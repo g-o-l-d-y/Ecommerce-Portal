@@ -10,8 +10,8 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import process.Model.Supplier.Supplier;
-import process.Model.Supplier.SupplierInterface;
+import process.Supplier.Supplier;
+import process.Supplier.SupplierInterface;
 
 
 public class SupplierTest {

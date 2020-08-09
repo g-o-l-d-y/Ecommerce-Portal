@@ -16,10 +16,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import process.Model.Category.Category;
-import process.Model.Category.CategoryInterface;
-import process.Model.Product.Product;
-import process.Model.Product.ProductInterface;
+import process.Category.Category;
+import process.Category.CategoryInterface;
+import process.Product.Product;
+import process.Product.ProductInterface;
 
 @Controller
 public class ProductController {

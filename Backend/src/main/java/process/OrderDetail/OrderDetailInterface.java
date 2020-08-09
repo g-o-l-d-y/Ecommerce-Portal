@@ -1,4 +1,4 @@
-package process.Model.OrderDetail;
+package process.OrderDetail;
 
 public interface OrderDetailInterface {
 	

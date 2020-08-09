@@ -1,4 +1,4 @@
-package process.Model.Product;
+package process.Product;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

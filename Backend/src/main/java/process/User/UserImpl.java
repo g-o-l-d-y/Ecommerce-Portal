@@ -1,4 +1,4 @@
-package process.Model.User;
+package process.User;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

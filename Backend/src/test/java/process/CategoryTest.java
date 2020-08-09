@@ -10,8 +10,8 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import process.Model.Category.Category;
-import process.Model.Category.CategoryInterface;
+import process.Category.Category;
+import process.Category.CategoryInterface;
 
 public class CategoryTest {
 	static CategoryInterface categoryDAO;

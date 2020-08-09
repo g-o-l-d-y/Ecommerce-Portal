@@ -10,8 +10,8 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import process.Model.Product.Product;
-import process.Model.Product.ProductInterface;
+import process.Product.Product;
+import process.Product.ProductInterface;
 
 public class ProductTest {
 	static ProductInterface productDAO;

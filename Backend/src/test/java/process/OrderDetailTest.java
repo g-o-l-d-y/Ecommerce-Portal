@@ -6,8 +6,8 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import process.Model.OrderDetail.OrderDetail;
-import process.Model.OrderDetail.OrderDetailInterface;
+import process.OrderDetail.OrderDetail;
+import process.OrderDetail.OrderDetailInterface;
 
 public class OrderDetailTest {
 

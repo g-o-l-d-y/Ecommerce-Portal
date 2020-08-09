@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import process.Model.Cart.Cart;
-import process.Model.Cart.CartInterface;
-import process.Model.Category.Category;
-import process.Model.Category.CategoryInterface;
-import process.Model.Product.Product;
-import process.Model.Product.ProductInterface;
+import process.Cart.Cart;
+import process.Cart.CartInterface;
+import process.Category.Category;
+import process.Category.CategoryInterface;
+import process.Product.Product;
+import process.Product.ProductInterface;
 
 @Controller
 public class CartController {

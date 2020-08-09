@@ -1,4 +1,4 @@
-package process.Model.OrderDetail;
+package process.OrderDetail;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

@@ -1,4 +1,4 @@
-package process.Model.Cart;
+package process.Cart;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

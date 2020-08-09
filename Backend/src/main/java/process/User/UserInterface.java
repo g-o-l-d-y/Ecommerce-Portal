@@ -1,4 +1,4 @@
-package process.Model.User;
+package process.User;
 
 public interface UserInterface {
 	

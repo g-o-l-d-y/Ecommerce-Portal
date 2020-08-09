@@ -21,10 +21,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import process.Model.Product.Product;
-import process.Model.Product.ProductInterface;
-import process.Model.User.User;
-import process.Model.User.UserInterface;
+import process.Product.Product;
+import process.Product.ProductInterface;
+import process.User.User;
+import process.User.UserInterface;
 
 @Controller
 public class UserController {

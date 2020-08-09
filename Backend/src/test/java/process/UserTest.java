@@ -7,8 +7,8 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import process.Model.User.User;
-import process.Model.User.UserInterface;
+import process.User.User;
+import process.User.UserInterface;
 
 
 public class UserTest {

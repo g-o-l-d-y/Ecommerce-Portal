@@ -1,4 +1,4 @@
-package process.Model.Category;
+package process.Category;
 
 import java.util.List;
 

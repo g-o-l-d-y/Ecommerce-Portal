@@ -1,4 +1,4 @@
-package process.Model.Category;
+package process.Category;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

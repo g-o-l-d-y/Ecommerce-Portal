@@ -1,4 +1,4 @@
-package process.Model.Supplier;
+package process.Supplier;
 
 import java.util.List;
 

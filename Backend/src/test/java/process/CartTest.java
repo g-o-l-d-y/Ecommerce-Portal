@@ -9,8 +9,8 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import process.Model.Cart.Cart;
-import process.Model.Cart.CartInterface;
+import process.Cart.Cart;
+import process.Cart.CartInterface;
 
 public class CartTest {
 

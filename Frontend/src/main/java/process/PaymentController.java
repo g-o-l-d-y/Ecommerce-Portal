@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import process.Model.Cart.Cart;
-import process.Model.Cart.CartInterface;
-import process.Model.OrderDetail.OrderDetail;
-import process.Model.OrderDetail.OrderDetailInterface;
-import process.Model.User.UserInterface;
+import process.Cart.Cart;
+import process.Cart.CartInterface;
+import process.OrderDetail.OrderDetail;
+import process.OrderDetail.OrderDetailInterface;
+import process.User.UserInterface;
 
 @Controller
 public class PaymentController {

@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import process.Model.Category.Category;
-import process.Model.Category.CategoryInterface;
+import process.Category.Category;
+import process.Category.CategoryInterface;
 
 @Controller
 public class CategoryController {
