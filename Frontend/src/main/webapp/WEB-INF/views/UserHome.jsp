@@ -5,11 +5,11 @@
 <html>
 	<head>
 		<meta charset="ISO-8859-1">
-		<title>About Us</title>
+		<title>Home</title>
 	</head>
 	<body>
 		<div class="container">
-			Hey!
+			<img src="<c:url value="/resources/images/gif2.gif"/>" width="1100" height="600"/>
 		</div>
 	</body>
 </html>

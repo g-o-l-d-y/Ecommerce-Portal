@@ -9,7 +9,7 @@
 	</head>
 	<body>
 		<div class="container">
-			Halo!
+			<img src="<c:url value="/resources/images/gif3.gif"/>" width="1100" height="600"/>
 		</div>
 	</body>
 </html>

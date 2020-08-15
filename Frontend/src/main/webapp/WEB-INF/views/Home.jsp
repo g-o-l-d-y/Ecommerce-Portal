@@ -6,15 +6,12 @@
 <head>
 	<meta charset="ISO-8859-1">
 	<title>Home</title>
+	
 </head>
-<body>
+<body >
 	<div class="container">
-		<div class="product col-md-3 service-image-left">
-			<img class="img-fluid img-thumbnail" src="<c:url value="/resources/images/HP1.jpg"/>" height=500 width=450/>
-		</div>
-		<div class="product col-md-3 service-image-right">
-			<img class="img-fluid img-thumbnail" src="<c:url value="/resources/images/HP2.jpg"/>" height=500 width=450/>
-		</div>
+		<h1 align="center"><b>WELCOME!!!</b></h1>
+		<img src="<c:url value="/resources/images/gif1.gif"/>" width="1100" height="600"/>
 	</div>
 </body>
 </html>

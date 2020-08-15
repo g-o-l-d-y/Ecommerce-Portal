@@ -1,5 +1,7 @@
 package process.Cart;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -11,6 +13,13 @@ public class Cart {
 	@GeneratedValue
 	int cartId;
 	int orderId;
+	public Date getOrderDate() {
+		return orderDate;
+	}
+	public void setOrderDate(Date orderDate) {
+		this.orderDate = orderDate;
+	}
+	Date orderDate;
 	int productId;
 	String productName;
 	int quantity;

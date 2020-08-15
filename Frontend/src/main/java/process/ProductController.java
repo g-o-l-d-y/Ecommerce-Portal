@@ -67,7 +67,7 @@ public class ProductController {
 		//Image Adding
 		
 		String imagePath="C:\\Users\\goldy\\git\\Ecommerce-Portal\\Frontend\\src\\main\\webapp\\resources\\images\\";
-		imagePath=imagePath+String.valueOf(product.getProductId())+".png";
+		imagePath=imagePath+String.valueOf(product.getProductId())+".jpg";
 		
 		File imageFile=new File(imagePath);
 		
@@ -104,68 +104,6 @@ public class ProductController {
 		return "Product";
 	}
 	
-	/*
-	@RequestMapping(value="/editProduct/{productId}")
-	public String editProduct(@PathVariable("productId") int productId,Model m)
-	{
-		Product p=productDAO.getProduct(productId);
-		m.addAttribute("product",p);
-		return "UpdateProduct";
-	}
-	
-	@RequestMapping(value="/updateProduct",method=RequestMethod.POST, consumes="multipart/form-data")
-	public String updateProduct(@RequestParam("productId")int productId,@RequestParam("productName")String productName, 
-			@RequestParam("productDesc")String productDesc, @RequestParam("stock") int stock, @RequestParam("price") double price,
-			 @RequestParam("supplierId") int supplierId, @RequestParam("productImage") MultipartFile filedet, Model m)
-	{
-		Product product1=new Product();
-		m.addAttribute("product", product1);
-		Product p=productDAO.getProduct(productId);
-		
-		p.setProductName(productName);
-		p.setProductDesc(productDesc);
-		p.setPrice(price);
-		p.setStock(stock);
-		p.setSupplierId(supplierId);
-		p.setproductImage(filedet);
-		
-		String imagePath="C:\\Users\\goldy\\git\\Ecommerce-Portal\\Frontend\\src\\main\\webapp\\resources\\images\\";
-		imagePath=imagePath+String.valueOf(productId)+".jpg";
-		
-		File imageFile=new File(imagePath);
-		
-		if(!filedet.isEmpty())
-		{
-			try
-			{
-				byte fileBuffer[]=filedet.getBytes();
-				FileOutputStream fos=new FileOutputStream(imageFile);
-				BufferedOutputStream bs=new BufferedOutputStream(fos);
-				bs.write(fileBuffer);
-				System.out.println("Uploaded");
-				bs.close();
-			}
-			catch(Exception e)
-			{
-				System.out.println(e);
-			}
-		}
-		else
-		{
-			System.out.println("Error Occured While File Uploading");
-		}
-		
-		productDAO.updateProduct(p);
-		
-		List<Product> productList=productDAO.listProducts();
-		m.addAttribute("productList", productList);
-		
-		System.out.println("Updation");
-		
-		return "Product";
-	}
-	*/
-	
 	@RequestMapping(value="/editProduct/{productId}")
 	public String editProduct(@PathVariable("productId")int productId,Model m)
 	{
@@ -181,7 +119,7 @@ public class ProductController {
 		return "Product";
 	}
 	
-	@RequestMapping(value="/editProduct/addProduct",method=RequestMethod.POST, consumes="multipart/form-data")
+	@RequestMapping(value="/updateProduct",method=RequestMethod.POST, consumes="multipart/form-data")
 	public String updateProduct(@ModelAttribute("product")Product product,@RequestParam("productImage") MultipartFile filedet,Model m)
 	{
 		int productId=prodId;
@@ -204,17 +142,17 @@ public class ProductController {
 		
 		productDAO.updateProduct(p);
 		
-		String imagePath="C:\\Users\\goldy\\git\\Ecommerce-Portal\\Frontend\\src\\main\\webapp\\resources\\images\\";
-		imagePath=imagePath+String.valueOf(productId)+".png";
-		
-		File image=new File(imagePath);
-		image.delete();
-		File imageFile=new File(imagePath);
-		
 		if(!filedet.isEmpty())
 		{
 			try
 			{
+				String imagePath="C:\\Users\\goldy\\git\\Ecommerce-Portal\\Frontend\\src\\main\\webapp\\resources\\images\\";
+				imagePath=imagePath+String.valueOf(productId)+".jpg";
+				
+				File image=new File(imagePath);
+				image.delete();
+				File imageFile=new File(imagePath);
+				
 				byte fileBuffer[]=filedet.getBytes();
 				FileOutputStream fos=new FileOutputStream(imageFile);
 				BufferedOutputStream bs=new BufferedOutputStream(fos);
@@ -248,6 +186,12 @@ public class ProductController {
 	@RequestMapping(value="/deleteProduct/{productId}")
 	public String deleteProduct(@PathVariable("productId")int productId,Model m)
 	{
+		String imagePath="C:\\Users\\goldy\\git\\Ecommerce-Portal\\Frontend\\src\\main\\webapp\\resources\\images\\";
+		imagePath=imagePath+String.valueOf(productId)+".jpg";
+		
+		File image=new File(imagePath);
+		image.delete();
+		
 		Product product1=new Product();
 		m.addAttribute("product", product1);
 		
@@ -263,15 +207,6 @@ public class ProductController {
 		return "Product";
 	}
 	
-	/*
-	@RequestMapping(value="displayProducts" ,method=RequestMethod.POST)
-	public String displayProducts(Model model)
-	{
-		List<Product> listProducts=productDAO.listProducts();
-		model.addAttribute("productList", listProducts);
-		return "ProductList";
-	}
-	*/
 	
 	@RequestMapping(value="/productDisplay")
 	public String productDisplay(Model m)

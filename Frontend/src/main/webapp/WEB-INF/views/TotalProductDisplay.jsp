@@ -13,19 +13,19 @@
 		<div class="item-container">	
 			<div class="container">	
 			<div class="row">
-				<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+				<div class="col-md-4 col-lg-4 col-sm-4 col-xs-6">
 					<div class="product col-md-3 service-image-left">
-						<img class="img-circle" src="<c:url value="/resources/images/${product.productId}.png"/>" width="100" height="100" alt=""></img>
+						<img id="item-display" src="<c:url value="/resources/images/${product.productId}.jpg"/>" width="300" height="300" alt=""></img>
 					</div>
 				</div>
 				<form action="<c:url value="/addToCart/${product.productId}"/>" method="get">
 				<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-					<div class="product-title">${product.productName}</div>
-					<div class="product-desc">${product.productDesc}</div>
+					<div class="product-title"><b>${product.productName}</b></div>
+					<div class="product-desc"><b>${product.productDesc}</b></div>
 					<hr>
-					<div class="product-price">INR ${product.price}/-</div>
-					<div class="product-stock">In Stock</div>
-					<div class="product-price">Quantity 
+					<div class="product-price"><b>INR ${product.price}/-</b></div>
+					<div class="product-stock"><b>In Stock</b></div>
+					<div class="product-price"><b>Quantity</b>
 							<select name="quantity">
 								<option value="1">1</option>
 								<option value="2">2</option>

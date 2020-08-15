@@ -53,6 +53,7 @@ public class PaymentController {
 		m.addAttribute("listCartItems", cartItemList);
 		
 		double total_Amount = this.totalCartValue(cartItemList);
+		total_Amount+=total_Amount/10;
 		
 		m.addAttribute("total_Amount",total_Amount);
 		m.addAttribute("address", userDAO.getUser(username).getAddress());
@@ -66,7 +67,7 @@ public class PaymentController {
 		if(orderDAO.payment(orderDetail))
 		{
 			System.out.println("Payment done");
-			orderDAO.updateCartStatus(username, orderDetail.getOrderId());
+			orderDAO.updateCartStatus(username, orderDetail.getOrderId(),orderDetail.getOrderDate());
 			System.out.println("Cart Updated");
 		}
 		

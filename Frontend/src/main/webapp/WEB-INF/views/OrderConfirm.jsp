@@ -9,8 +9,8 @@
 	</head>
 	<body>
 	<div class="container">
-		<div style="background-color:orange">
-			<h2 align="center">Your Cart</h2>
+		<div>
+			<h2 align="center"><b>Your Cart</b></h2>
 		</div>
 		
 	    <div class="row">
@@ -18,11 +18,10 @@
 	            <table class="table table-hover">
 	                <thead>
 	                    <tr>
-	                        <th>Product</th>
-	                        <th>Quantity</th>
-	                        <th class="text-center">Price</th>
-	                        <th class="text-center">Total</th>
-	                        <th> </th>
+	                        <th><h4><b>Product</b></h4></th>
+	                        <th><h4><b>Quantity</b></h4></th>
+	                        <th class="text-center"><h4><b>Price</b></h4></th>
+	                        <th class="text-center"><h4><b>Total</b></h4></th>
 	                    </tr>
 	                </thead>
 	                <tbody>
@@ -31,15 +30,16 @@
                     <tr>
                         <td class="col-sm-8 col-md-6">
                         <div class="media">
-                            <a class="thumbnail pull-left" href="#"> <img class="media-object" src="<c:url value="/resources/images/${cartItem.productId}.png"/>" style="width: 72px; height: 72px;"> </a>
-                            <div class="media-body">
-                                <h4 class="media-heading"><a href="#">${cartItem.productName}</a></h4>
-                                <h5 class="media-heading"> by <a href="#">Brand name</a></h5>
-                                <span>Status: </span><span class="text-success"><strong>In Stock</strong></span>
+                            <a class="thumbnail pull-left" href="#"> <img class="media-object" src="<c:url value="/resources/images/${cartItem.productId}.jpg"/>" style="width: 72px; height: 72px;"> </a>
+                            <div>
+                            	<br>
+                                <h4><span style="color:#000000;" href="#"><b> ${cartItem.productName}</b></span></h4>
+                                <!-- <h5 class="media-heading"> by <a href="#">Brand name</a></h5> -->
+                                <!-- <span><b>Status:</b> </span><span style="color:#006400;"><strong>In Stock</strong></span> -->
                             </div>
                         </div></td>
                         <td class="col-sm-1 col-md-1" style="text-align: center">
-                       		${cartItem.quantity}
+                       		<b>${cartItem.quantity}</b>
                         </td>
                         <td class="col-sm-1 col-md-1 text-center"><strong>${cartItem.price}</strong></td>
                         <td class="col-sm-1 col-md-1 text-center"><strong>${cartItem.price * cartItem.quantity}</strong></td>
@@ -49,21 +49,21 @@
 	                    <tr>
 	                        <td>   </td>
 	                        <td>   </td>
-	                        <td><h5>Subtotal</h5></td>
+	                        <td><h4><b>Subtotal</b></h4></td>
 	                        <td class="text-right"><h5><strong>${total_Amount}</strong></h5></td>
 	                    </tr>
 	                    <tr>
 	        
 	                        <td>   </td>
 	                        <td>   </td>
-	                        <td><h5>Estimated shipping</h5></td>
+	                        <td ><h4><b>Estimated shipping</b></h4></td>
 	                        <td class="text-right"><h5><strong>${total_Amount /10}</strong></h5></td>
 	                    </tr>
 	                    <tr>
 	                       <td>   </td>
 	                        <td>   </td>
-	                        <td><h3>Total</h3></td>
-	                        <td class="text-right"><h3><strong>INR. ${total_Amount+ (total_Amount/10)}/-</strong></h3></td>
+	                        <td><h3><b>Total</b></h3></td>
+	                        <td class="text-right"><h3><strong>&#8377;${total_Amount+ (total_Amount/10)}/-</strong></h3></td>
 	                    </tr>
 	                    <tr>
 	                        <td>   </td>

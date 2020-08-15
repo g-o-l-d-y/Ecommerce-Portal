@@ -9,4 +9,5 @@ public interface CartInterface {
 	public boolean updateCart(Cart cart);
 	public List<Cart> listCartItems(String username);
 	public Cart getCart(int cartId);
+	public List<Cart> listOrders(String username);
 }

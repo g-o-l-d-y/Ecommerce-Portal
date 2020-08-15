@@ -1,5 +1,9 @@
 package process;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -11,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javafx.util.Pair;
 import process.Cart.Cart;
 import process.Cart.CartInterface;
 import process.Category.Category;
@@ -129,14 +134,33 @@ public class CartController {
 	@RequestMapping(value="/confirmOrder")
 	public String confirmOrder(Model m,HttpSession session)
 	{
+		
+		String errorMessage;
 		String username=(String)session.getAttribute("username");
 		
 		List<Cart> cartItemList=cartDAO.listCartItems(username);
 		m.addAttribute("listCartItems", cartItemList);
 		
 		m.addAttribute("total_Amount", this.totalCartValue(cartItemList));
-		
-		return "OrderConfirm";
+		double total=this.totalCartValue(cartItemList);
+		if(total==0)
+		{
+			errorMessage="Cart is Empty!";
+			m.addAttribute("errorMessage",errorMessage);
+			m.addAttribute("listCartItems", cartItemList);
+			
+			m.addAttribute("total_Amount", this.totalCartValue(cartItemList));
+			return "Cart";
+		}
+		else
+		{
+			errorMessage="";
+			m.addAttribute("errorMessage",errorMessage);
+			m.addAttribute("listCartItems", cartItemList);
+			
+			m.addAttribute("total_Amount", this.totalCartValue(cartItemList));
+			return "OrderConfirm";
+		}
 	}
 	
 	public double totalCartValue(List<Cart> cartItemList)
@@ -153,6 +177,24 @@ public class CartController {
 		
 		return totalCost;
 	}
+	
+	@RequestMapping(value="/myOrders")
+	public String orderList(Model m, HttpSession session)
+	{
+		String username=(String)session.getAttribute("username");
+		List<Cart> ordersList=cartDAO.listOrders(username);
+		Collections.reverse(ordersList);
+		m.addAttribute("Orders",ordersList);
+		ArrayList<Pair<Integer,Date>> orders=new ArrayList<Pair<Integer,Date>>();
 
+		for(int i=0;i<ordersList.size();i++)
+		{
+			Pair < Integer, Date> ans = new Pair <Integer,Date> (ordersList.get(i).getOrderId(),ordersList.get(i).getOrderDate()); 
+			if(!(orders.contains(ans)))
+				orders.add(ans);
+		}
+		m.addAttribute("OrdersList", orders);
+		return "MyOrders";
+	}
 
 }

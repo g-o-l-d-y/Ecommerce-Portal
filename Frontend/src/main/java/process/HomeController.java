@@ -20,6 +20,18 @@ public class HomeController {
 		return "Home";
 	}
 	
+	@RequestMapping(value= "/UserHome")
+	public String showUserHome()
+	{
+		return "UserHome";
+	}
+	
+	@RequestMapping(value= "/AdminHome")
+	public String showAdminHome()
+	{
+		return "AdminHome";
+	}
+	
 	@RequestMapping("/Login") 
 	public String showlogin() 
 	{ 

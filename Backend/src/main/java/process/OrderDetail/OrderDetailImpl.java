@@ -1,5 +1,7 @@
 package process.OrderDetail;
 
+import java.util.Date;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -29,12 +31,13 @@ public class OrderDetailImpl implements OrderDetailInterface{
 	}
 
 	@Override
-	public boolean updateCartStatus(String userName, int orderId) {
+	public boolean updateCartStatus(String userName, int orderId, Date orderDate) {
 		
 		Session session=sessionFactory.getCurrentSession();
-		Query query=session.createQuery("update Cart set status='P',orderId=:ordId where userName=:uname and status='NP'");
+		Query query=session.createQuery("update Cart set status='P', orderId=:ordId, orderDate=:date where userName=:uname and status='NP'");
 		query.setParameter("ordId",orderId);
 		query.setParameter("uname", userName);
+		query.setParameter("date", orderDate);
 		
 		int row_eff=query.executeUpdate();
 		

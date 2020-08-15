@@ -73,4 +73,13 @@ public class CartImpl implements CartInterface
 		session.close();
 		return cartItemList;
 	}
+
+	public List<Cart> listOrders(String username) {
+		Session session=sessionFactory.openSession();
+		Query query = session.createQuery("from Cart where userName=:uname and status='P'");
+		query.setParameter("uname", username);
+		List<Cart> ordersList=query.list();
+		session.close();
+		return ordersList;
+	}
 }

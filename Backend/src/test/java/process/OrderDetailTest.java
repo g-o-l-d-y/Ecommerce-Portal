@@ -32,7 +32,7 @@ public class OrderDetailTest {
 		orderInfo.setPaymentMode("COD");
 		
 		assertTrue("Problem in Order Payment",orderDAO.payment(orderInfo));
-		assertTrue("Problem in Updating Payment",orderDAO.updateCartStatus(orderInfo.getUserName(),orderInfo.getOrderId()));
+		assertTrue("Problem in Updating Payment",orderDAO.updateCartStatus(orderInfo.getUserName(),orderInfo.getOrderId(),orderInfo.getOrderDate()));
 	}
 
 }

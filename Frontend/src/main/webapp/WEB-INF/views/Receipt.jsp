@@ -11,36 +11,36 @@
 	<div class="container">
 
     <div class="row">
-        <div class="col-xs-12">
-    		<div class="invoice-title">
-    			<h2>Invoice</h2><h3 class="pull-right">Order # ${order.orderId}</h3>
+        <div class="col-xs-10">
+    		<div class="invoice-title" align="center">
+    			<h3><b>Invoice - Order # ${order.orderId}</b></h3>
     		</div>
     		<hr>
     		<div class="row">
     			<div class="col-xs-6">
     				<address>
-    				<strong>Billed To:</strong><br>
-    					${address}
+    				<strong><h4><b>Billed To: </b></h4></strong>
+    					<h4><b>${address}</b></h4>
     				</address>
     			</div>
     			<div class="col-xs-6 text-right">
     				<address>
-        			<strong>Total Shopping Amount:</strong><br>
-    					${total_Amount}
+        			<h4><b>Total Shopping Amount: </b></h4>
+    					<h4><b>&#8377;${total_Amount}/-</b></h4>
     				</address>
     			</div>
     		</div>
     		<div class="row">
     			<div class="col-xs-6">
     				<address>
-    					<strong>Payment Method:</strong><br/>
-    					${order.paymentMode}<br/>
+    					<strong><h4><b>Payment Method: </b></h4></strong>
+    					<h4><b>${order.paymentMode}</b></h4>
     				</address>
     			</div>
     			<div class="col-xs-6 text-right">
     				<address>
-    					<strong>Order Date:</strong><br>
-    					${order.orderDate}<br><br>
+    					<h4><b>Order Date:</b></h4> 
+    					<h4><b>${order.orderDate}</b></h4>
     				</address>
     			</div>
     		</div>
@@ -48,7 +48,7 @@
     </div>
     
     <div class="row">
-    	<div class="col-md-12">
+    	<div class="col-md-10">
     		<div class="panel panel-default">
     			<div class="panel-heading">
     				<h3 class="panel-title"><strong>Order summary</strong></h3>
@@ -61,7 +61,7 @@
         							<td><strong>Item</strong></td>
         							<td class="text-center"><strong>Price</strong></td>
         							<td class="text-center"><strong>Quantity</strong></td>
-        							<td class="text-right"><strong>Totals</strong></td>
+        							<td class="text-right"><strong>Total</strong></td>
                                 </tr>
     						</thead>
     						<tbody>
@@ -73,6 +73,12 @@
     								<td class="text-right">${cartItem.price * cartItem.quantity}</td>
     							</tr>
     							</c:forEach>
+    							<tr>
+    							<td></td>
+    							<td></td>
+    							<td class="text-center"><b>Shipping Charge :</b></td>
+    							<td class="text-right">${total_Amount/10}</td>
+    							</tr>
     						</tbody>
     					</table>
     				</div>
