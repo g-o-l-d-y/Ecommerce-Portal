@@ -16,24 +16,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javafx.util.Pair;
-import process.Cart.Cart;
-import process.Cart.CartInterface;
-import process.Category.Category;
-import process.Category.CategoryInterface;
-import process.Product.Product;
-import process.Product.ProductInterface;
+import process.DAO.CartDAO;
+import process.DAO.CategoryDAO;
+import process.DAO.ProductDAO;
+import process.Model.Cart;
+import process.Model.Category;
+import process.Model.Product;
 
 @Controller
 public class CartController {
 	
 	@Autowired
-	CartInterface cartDAO;
+	CartDAO cartDAO;
 	
 	@Autowired
-	ProductInterface productDAO;
+	ProductDAO productDAO;
 	
 	@Autowired
-	CategoryInterface categoryDAO;
+	CategoryDAO categoryDAO;
 	
 	@RequestMapping(value="/Cart")
 	public String showCart(Model m,HttpSession session)

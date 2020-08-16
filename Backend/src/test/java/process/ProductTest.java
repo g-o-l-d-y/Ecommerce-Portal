@@ -10,18 +10,18 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import process.Product.Product;
-import process.Product.ProductInterface;
+import process.DAO.ProductDAO;
+import process.Model.Product;
 
 public class ProductTest {
-	static ProductInterface productDAO;
+	static ProductDAO productDAO;
 	@BeforeClass
 	public static void executeFirst()
 	{
 	AnnotationConfigApplicationContext context=new AnnotationConfigApplicationContext();
 	context.scan("process");
 	context.refresh();
-	productDAO=(ProductInterface)context.getBean("productDAO");
+	productDAO=(ProductDAO)context.getBean("productDAO");
 	}
 	@Ignore
 	@Test

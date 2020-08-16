@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import process.Category.Category;
-import process.Category.CategoryInterface;
+import process.DAO.CategoryDAO;
+import process.Model.Category;
 
 @Controller
 public class CategoryController {
 	
 	@Autowired 
-	CategoryInterface categoryDAO;
+	CategoryDAO categoryDAO;
 	
 	@RequestMapping("/Category")
 	public String showCategory(Model m)

@@ -1,4 +1,4 @@
-package process.Product;
+package process.DAO;
 
 import java.util.List;
 
@@ -9,9 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import process.Model.Product;
+
 @Repository("productDAO")
 @Transactional
-public class ProductImpl implements ProductInterface
+public class ProductImpl implements ProductDAO
 {
 	@Autowired
 	SessionFactory sessionFactory;

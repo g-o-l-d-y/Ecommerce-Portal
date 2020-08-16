@@ -1,8 +1,10 @@
-package process.Product;
+package process.DAO;
 
 import java.util.List;
 
-public interface ProductInterface {
+import process.Model.Product;
+
+public interface ProductDAO {
 
 	public boolean addProduct(Product product);
 	public boolean deleteProduct(Product product);

@@ -21,19 +21,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import process.Product.Product;
-import process.Product.ProductInterface;
-import process.User.User;
-import process.User.UserInterface;
+import process.DAO.ProductDAO;
+import process.DAO.UserDAO;
+import process.Model.Product;
+import process.Model.User;
 
 @Controller
 public class UserController {
 	
 	@Autowired
-	UserInterface userDAO;
+	UserDAO userDAO;
 	
 	@Autowired
-	ProductInterface productDAO;
+	ProductDAO productDAO;
 	
 	
 	@RequestMapping("/success")

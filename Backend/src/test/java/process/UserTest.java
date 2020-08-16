@@ -7,20 +7,20 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import process.User.User;
-import process.User.UserInterface;
+import process.DAO.UserDAO;
+import process.Model.User;
 
 
 public class UserTest {
 	
-	static UserInterface userDAO;
+	static UserDAO userDAO;
 	@BeforeClass
 	public static void executeFirst()
 	{
 	AnnotationConfigApplicationContext context=new AnnotationConfigApplicationContext();
 	context.scan("process");
 	context.refresh();
-	userDAO=(UserInterface)context.getBean("userDAO");
+	userDAO=(UserDAO)context.getBean("userDAO");
 	context.close();
 	}
 	

@@ -1,4 +1,4 @@
-package process.OrderDetail;
+package process.DAO;
 
 import java.util.Date;
 
@@ -9,9 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import process.Model.OrderDetail;
+
 @Repository("orderDAO")
 @Transactional
-public class OrderDetailImpl implements OrderDetailInterface{
+public class OrderDetailImpl implements OrderDetailDAO{
 
 	@Autowired
 	SessionFactory sessionFactory;

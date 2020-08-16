@@ -1,4 +1,4 @@
-package process.OrderDetail;
+package process.Model;
 
 import java.util.Date;
 

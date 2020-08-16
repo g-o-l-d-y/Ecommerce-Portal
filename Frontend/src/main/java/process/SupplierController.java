@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import process.Supplier.Supplier;
-import process.Supplier.SupplierInterface;
+import process.DAO.SupplierDAO;
+import process.Model.Supplier;
 
 
 @Controller
 public class SupplierController {
 	@Autowired 
-	SupplierInterface supplierDAO;
+	SupplierDAO supplierDAO;
 	
 	@RequestMapping(value="addSupplier" , method=RequestMethod.POST)
 	public String addSupplier(@RequestParam("supplierName") String supplierName, @RequestParam("supplierDesc") String supplierDesc)

@@ -10,18 +10,18 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import process.Category.Category;
-import process.Category.CategoryInterface;
+import process.DAO.CategoryDAO;
+import process.Model.Category;
 
 public class CategoryTest {
-	static CategoryInterface categoryDAO;
+	static CategoryDAO categoryDAO;
 	@BeforeClass
 	public static void executeFirst()
 	{
 	AnnotationConfigApplicationContext context=new AnnotationConfigApplicationContext();
 	context.scan("process");
 	context.refresh();
-	categoryDAO=(CategoryInterface)context.getBean("categoryDAO");
+	categoryDAO=(CategoryDAO)context.getBean("categoryDAO");
 	context.close();
 	}
 	

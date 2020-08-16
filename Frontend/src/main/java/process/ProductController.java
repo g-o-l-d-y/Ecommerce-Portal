@@ -16,18 +16,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import process.Category.Category;
-import process.Category.CategoryInterface;
-import process.Product.Product;
-import process.Product.ProductInterface;
+import process.DAO.CategoryDAO;
+import process.DAO.ProductDAO;
+import process.Model.Category;
+import process.Model.Product;
 
 @Controller
 public class ProductController {
 	
 	@Autowired
-	ProductInterface productDAO;
+	ProductDAO productDAO;
 	@Autowired
-	CategoryInterface categoryDAO;
+	CategoryDAO categoryDAO;
 	
 	int prodId;
 	

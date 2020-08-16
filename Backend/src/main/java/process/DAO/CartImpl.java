@@ -1,4 +1,4 @@
-package process.Cart;
+package process.DAO;
 
 import java.util.List;
 
@@ -9,10 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import process.Model.Cart;
+
 
 @Repository("cartDAO")
 @Transactional
-public class CartImpl implements CartInterface
+public class CartImpl implements CartDAO
 {
 	@Autowired
 	SessionFactory sessionFactory; 

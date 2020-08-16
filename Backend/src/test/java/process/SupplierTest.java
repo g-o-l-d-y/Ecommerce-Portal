@@ -10,20 +10,20 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import process.Supplier.Supplier;
-import process.Supplier.SupplierInterface;
+import process.DAO.SupplierDAO;
+import process.Model.Supplier;
 
 
 public class SupplierTest {
 
-	static SupplierInterface supplierDAO;
+	static SupplierDAO supplierDAO;
 	@BeforeClass
 	public static void executeFirst()
 	{
 	AnnotationConfigApplicationContext context=new AnnotationConfigApplicationContext();
 	context.scan("process");
 	context.refresh();
-	supplierDAO=(SupplierInterface)context.getBean("supplierDAO");
+	supplierDAO=(SupplierDAO)context.getBean("supplierDAO");
 	context.close();
 	}
 	

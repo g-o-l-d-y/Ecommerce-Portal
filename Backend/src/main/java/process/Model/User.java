@@ -1,4 +1,4 @@
-package process.User;
+package process.Model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

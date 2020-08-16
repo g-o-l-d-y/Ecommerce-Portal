@@ -1,8 +1,10 @@
-package process.Category;
+package process.DAO;
 
 import java.util.List;
 
-public interface CategoryInterface {
+import process.Model.Category;
+
+public interface CategoryDAO {
 	public boolean addCategory(Category category);
 	public boolean deleteCategory(Category category);
 	public boolean updateCategory(Category category);

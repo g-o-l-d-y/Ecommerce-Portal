@@ -14,18 +14,18 @@ import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import javafx.util.Pair;
-import process.Cart.Cart;
-import process.Cart.CartInterface;
+import process.DAO.CartDAO;
+import process.Model.Cart;
 
 public class CartTest {
 
-	static CartInterface cartDAO;
+	static CartDAO cartDAO;
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		AnnotationConfigApplicationContext context=new AnnotationConfigApplicationContext();
 		context.scan("process");
 		context.refresh();
-		cartDAO=(CartInterface)context.getBean("cartDAO");
+		cartDAO=(CartDAO)context.getBean("cartDAO");
 	}
 	
 	@Ignore

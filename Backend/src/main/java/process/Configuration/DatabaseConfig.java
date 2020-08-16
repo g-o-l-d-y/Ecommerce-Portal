@@ -14,12 +14,12 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import process.Cart.Cart;
-import process.Category.Category;
-import process.OrderDetail.OrderDetail;
-import process.Product.Product;
-import process.Supplier.Supplier;
-import process.User.User;
+import process.Model.Cart;
+import process.Model.Category;
+import process.Model.OrderDetail;
+import process.Model.Product;
+import process.Model.Supplier;
+import process.Model.User;
 
 @Configuration
 @ComponentScan("process")

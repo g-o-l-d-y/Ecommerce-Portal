@@ -11,23 +11,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import process.Cart.Cart;
-import process.Cart.CartInterface;
-import process.OrderDetail.OrderDetail;
-import process.OrderDetail.OrderDetailInterface;
-import process.User.UserInterface;
+import process.DAO.CartDAO;
+import process.DAO.OrderDetailDAO;
+import process.DAO.UserDAO;
+import process.Model.Cart;
+import process.Model.OrderDetail;
 
 @Controller
 public class PaymentController {
 
 	@Autowired
-	CartInterface cartDAO;
+	CartDAO cartDAO;
 	
 	@Autowired
-	UserInterface userDAO;
+	UserDAO userDAO;
 	
 	@Autowired
-	OrderDetailInterface orderDAO;
+	OrderDetailDAO orderDAO;
 	
 	@RequestMapping(value="/payment")
 	public String makePayment(Model m,HttpSession session)

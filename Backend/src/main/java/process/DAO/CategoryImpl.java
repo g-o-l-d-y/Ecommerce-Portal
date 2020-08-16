@@ -1,4 +1,4 @@
-package process.Category;
+package process.DAO;
 
 import java.util.List;
 
@@ -8,9 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import process.Model.Category;
+
 @Repository("categoryDAO")
 @Transactional
-public class CategoryImpl implements CategoryInterface
+public class CategoryImpl implements CategoryDAO
 {
 	@Autowired
 	SessionFactory sessionFactory; 

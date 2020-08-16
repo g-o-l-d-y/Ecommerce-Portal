@@ -1,8 +1,10 @@
-package process.OrderDetail;
+package process.DAO;
 
 import java.util.Date;
 
-public interface OrderDetailInterface {
+import process.Model.OrderDetail;
+
+public interface OrderDetailDAO {
 	
 	public boolean payment(OrderDetail orderDetail);
 	public boolean updateCartStatus(String userName, int orderId, Date date);

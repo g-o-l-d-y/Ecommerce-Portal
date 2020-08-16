@@ -1,4 +1,4 @@
-package process.User;
+package process.DAO;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -6,9 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import process.Model.User;
+
 @Repository("userDAO")
 @Transactional
-public class UserImpl implements UserInterface{
+public class UserImpl implements UserDAO{
 
 	@Autowired
 	SessionFactory sessionFactory;

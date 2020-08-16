@@ -6,12 +6,12 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import process.OrderDetail.OrderDetail;
-import process.OrderDetail.OrderDetailInterface;
+import process.DAO.OrderDetailDAO;
+import process.Model.OrderDetail;
 
 public class OrderDetailTest {
 
-    static OrderDetailInterface orderDAO;
+    static OrderDetailDAO orderDAO;
 	
 	@BeforeClass
 	public static void executeFirst()
@@ -19,7 +19,7 @@ public class OrderDetailTest {
 		AnnotationConfigApplicationContext context=new AnnotationConfigApplicationContext();
 		context.scan("process");
 		context.refresh();
-		orderDAO=(OrderDetailInterface)context.getBean("orderDAO");
+		orderDAO=(OrderDetailDAO)context.getBean("orderDAO");
 	}
 	
 	@Test

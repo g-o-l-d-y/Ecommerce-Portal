@@ -1,8 +1,10 @@
-package process.Cart;
+package process.DAO;
 
 import java.util.List;
 
-public interface CartInterface {
+import process.Model.Cart;
+
+public interface CartDAO {
 	
 	public boolean addToCart(Cart cart);
 	public boolean deleteCartItem(Cart cart);

@@ -1,4 +1,4 @@
-package process.Supplier;
+package process.DAO;
 
 import java.util.List;
 
@@ -8,10 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import process.Model.Supplier;
+
 
 @Repository("supplierDAO")
 @Transactional
-public class SupplierImpl implements SupplierInterface
+public class SupplierImpl implements SupplierDAO
 {
 	@Autowired
 	SessionFactory sessionFactory; 
