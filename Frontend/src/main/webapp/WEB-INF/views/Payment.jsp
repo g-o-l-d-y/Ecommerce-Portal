@@ -29,19 +29,19 @@
 		</tr>
 		<tr>
 			<td><h4><b>Name</b></h4></td>
-			<td><input type="text" name="uname" class="form-control"/></td>
+			<td><input type="text" name="uname" class="form-control" value="Mandatory if you choose Credit Card"/></td>
 		</tr>
 		<tr>
 			<td><h4><b>Card No.</b></h4> </td>
-			<td><input type="text" name="cardNo" class="form-control"/></td>
+			<td><input type="text" name="cardNo" class="form-control" value="Mandatory if you choose Credit Card"/></td>
 		</tr>
 		<tr>
 			<td><h4><b>Valid Upto</b></h4></td>
-			<td><input type="text" name="valid" class="form-control"/></td>
+			<td><input type="text" name="valid" class="form-control" value="Mandatory if you choose Credit Card"/></td>
 		</tr>
 		<tr>
 			<td><h4><b>CVV</b></h4></td>
-			<td><input type="text" name="cvv" class="form-control"/></td>
+			<td><input type="text" name="cvv" class="form-control" value="Mandatory if you choose Credit Card"/></td>
 		</tr>
 		<tr>
 			<td colspan="colspan=2"><input type="submit" value="Pay" class="btn btn-primary"/></td>

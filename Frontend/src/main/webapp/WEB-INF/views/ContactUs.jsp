@@ -9,7 +9,9 @@
 	</head>
 	<body>
 		<div class="container">
-			Halo!
+			<h1><b>We would love to get in touch with you!!!!</b></h1>
+			<br>
+			<h1><b>Call (1)786 098 098 for any queries.</b></h1>
 		</div>
 	</body>
 </html>

@@ -9,7 +9,9 @@
 	</head>
 	<body>
 		<div class="container">
-			Hey!
+			<h1><b>ShopNew.com is an e-commerce website that is a startup and hopes to satisfy customer's needs.</b></h1>
+			<br>
+			<h1><b>Since 2020!!!</b></h1>
 		</div>
 	</body>
 </html>

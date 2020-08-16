@@ -103,7 +103,7 @@
 	<body  background="<c:url value="/resources/images/HP1.jpg"/>">
 	  <div class="container-fluid">
 	    <div class="navbar-header">
-	      <a class="navbar-brand" href="#" style="color:#000000;"><b>Titicaca</b></a>
+	      <a class="navbar-brand" href="#" style="color:#000000;"><b>ShopNew</b></a>
 	    </div>
 	    <ul class="nav navbar-nav navbar-right">
 	    <c:if test="${sessionScope.loggedIn}">
